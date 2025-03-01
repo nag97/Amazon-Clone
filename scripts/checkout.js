@@ -1,6 +1,7 @@
 import {cart} from '../data/cart.js';
 import {products} from '../data/products.js';
 
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartItem)=> {
@@ -36,7 +37,7 @@ cartSummaryHTML +=
         <span class="update-quantity-link link-primary">
           Update
         </span>
-        <span class="delete-quantity-link link-primary">
+        <span class="delete-quantity-link link-primary js-delete-link">
           Delete
         </span>
       </div>
@@ -49,7 +50,7 @@ cartSummaryHTML +=
       <div class="delivery-option">
         <input type="radio" checked
           class="delivery-option-input"
-          name="delivery-option-1">
+          name="delivery-option-${matchingProduct.id}">
         <div>
           <div class="delivery-option-date">
             Tuesday, June 21
@@ -62,7 +63,7 @@ cartSummaryHTML +=
       <div class="delivery-option">
         <input type="radio"
           class="delivery-option-input"
-          name="delivery-option-1">
+          name="delivery-option- ${matchingProduct.id}">
         <div>
           <div class="delivery-option-date">
             Wednesday, June 15
@@ -75,7 +76,7 @@ cartSummaryHTML +=
       <div class="delivery-option">
         <input type="radio"
           class="delivery-option-input"
-          name="delivery-option-1">
+          name="delivery-option-${matchingProduct.id}">
         <div>
           <div class="delivery-option-date">
             Monday, June 13
@@ -90,6 +91,11 @@ cartSummaryHTML +=
 </div>`
 });
 
-console.log(cartSummaryHTML);
-
 document.querySelector('.js-order-summary').innerHTML = cartSummaryHTML;
+
+document.querySelectorAll('.js-delete-link')
+.forEach((link) =>{
+   link.addEventListener('click',()=>{
+    console.log("delete");
+   });
+});
