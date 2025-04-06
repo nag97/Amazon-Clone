@@ -1,3 +1,4 @@
+import dayjs from 'https://cdn.skypack.dev/dayjs@1.11.10';
 import {cart, removeFromCart, updateDeliveryOption} from '../data/cart.js';
 import {products} from '../data/products.js';
 import {formatCurrency} from './utils/money.js';
